@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resource :registration
   resource :password_reset
   resource :password
+  resource :product
 
   # Defines the root path route ("/")
   root 'main#index'
