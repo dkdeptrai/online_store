@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PasswordResetsController < ApplicationController
   before_action :set_user_by_token, only: %i[edit update]
   def new; end

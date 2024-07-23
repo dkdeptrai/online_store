@@ -38,8 +38,10 @@
     <orderEntry type="library" scope="PROVIDED" name="activemodel (v7.1.3.4, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activerecord (v7.1.3.4, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activestorage (v7.1.3.4, rbenv: 3.2.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activestorage-cloudinary-service (v0.2.3, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activesupport (v7.1.3.4, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.8.7, rbenv: 3.2.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="annotate (v3.2.0, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ast (v2.4.2, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="base64 (v0.2.0, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bcrypt (v3.1.20, rbenv: 3.2.3) [gem]" level="application" />
@@ -59,24 +61,27 @@
     <orderEntry type="library" scope="PROVIDED" name="dotenv-rails (v3.1.2, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="drb (v2.2.1, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.13.0, rbenv: 3.2.3) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="faraday (v2.9.2, rbenv: 3.2.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="faraday (v2.10.0, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="faraday-follow_redirects (v0.3.0, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="faraday-multipart (v1.0.4, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="faraday-net_http (v3.1.0, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ffi (v1.17.0, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v1.2.1, rbenv: 3.2.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="hotwire-livereload (v1.4.0, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.14.5, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="image_processing (v1.12.2, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="importmap-rails (v2.0.1, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="io-console (v0.7.2, rbenv: 3.2.3) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="irb (v1.13.2, rbenv: 3.2.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="irb (v1.14.0, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.12.0, rbenv: 3.2.3) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="json (v2.6.3, rbenv: 3.2.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="json (v2.7.2, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="language_server-protocol (v3.17.0.3, rbenv: 3.2.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="listen (v3.9.0, rbenv: 3.2.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="logger (v1.6.0, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="loofah (v2.22.0, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mail (v2.8.1, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="marcel (v1.0.4, rbenv: 3.2.3) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="mini_magick (v4.13.1, rbenv: 3.2.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mini_magick (v4.13.2, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="mini_mime (v1.1.5, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="minitest (v5.24.1, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="msgpack (v1.7.2, rbenv: 3.2.3) [gem]" level="application" />
@@ -89,14 +94,14 @@
     <orderEntry type="library" scope="PROVIDED" name="net-smtp (v0.5.0, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nio4r (v2.7.3, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.16.6, rbenv: 3.2.3) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="parallel (v1.24.0, rbenv: 3.2.3) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="parser (v3.3.0.5, rbenv: 3.2.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="parallel (v1.25.1, rbenv: 3.2.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="parser (v3.3.4.0, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="pg (v1.5.6, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="psych (v5.1.2, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="public_suffix (v6.0.0, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="puma (v6.4.2, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="racc (v1.8.0, rbenv: 3.2.3) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rack (v3.1.6, rbenv: 3.2.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack (v3.1.7, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-session (v2.0.0, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-test (v2.1.0, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rackup (v2.1.0, rbenv: 3.2.3) [gem]" level="application" />
@@ -106,27 +111,31 @@
     <orderEntry type="library" scope="PROVIDED" name="railties (v7.1.3.4, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rainbow (v3.1.1, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v13.2.1, rbenv: 3.2.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rb-fsevent (v0.11.2, rbenv: 3.2.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rb-inotify (v0.11.1, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rdoc (v6.7.0, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="redis (v5.2.0, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="redis-client (v0.22.2, rbenv: 3.2.3) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="regexp_parser (v2.9.0, rbenv: 3.2.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="regexp_parser (v2.9.2, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="reline (v0.5.9, rbenv: 3.2.3) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rexml (v3.2.6, rbenv: 3.2.3) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rubocop (v1.62.0, rbenv: 3.2.3) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rubocop-ast (v1.31.1, rbenv: 3.2.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rexml (v3.3.2, rbenv: 3.2.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rubocop (v1.65.0, rbenv: 3.2.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rubocop-ast (v1.31.3, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby-progressbar (v1.13.0, rbenv: 3.2.3) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="ruby-vips (v2.2.1, rbenv: 3.2.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ruby-vips (v2.2.2, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v4.2.1, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets-rails (v3.5.1, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ssrf_filter (v1.1.2, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="stimulus-rails (v1.3.3, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="stringio (v3.1.1, rbenv: 3.2.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="strscan (v3.1.0, rbenv: 3.2.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tailwindcss-rails (v2.6.3, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="thor (v1.3.1, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="timeout (v0.4.1, rbenv: 3.2.3) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="turbo-rails (v2.0.5, rbenv: 3.2.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="turbo-rails (v2.0.6, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="tzinfo (v2.0.6, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="unicode-display_width (v2.5.0, rbenv: 3.2.3) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="uri (v0.12.2, rbenv: 3.2.3) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="uri (v0.13.0, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="web-console (v4.2.1, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="webrick (v1.8.1, rbenv: 3.2.3) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-driver (v0.7.6, rbenv: 3.2.3) [gem]" level="application" />
@@ -142,10 +151,14 @@
       <list>
         <option value="active_record:application_record" />
         <option value="active_record:multi_db" />
+        <option value="annotate:install" />
         <option value="application_record" />
         <option value="benchmark" />
         <option value="channel" />
         <option value="controller" />
+        <option value="erb:controller" />
+        <option value="erb:mailer" />
+        <option value="erb:scaffold" />
         <option value="generator" />
         <option value="helper" />
         <option value="integration_test" />
@@ -173,10 +186,14 @@
       <list>
         <option value="active_record:application_record" />
         <option value="active_record:multi_db" />
+        <option value="annotate:install" />
         <option value="application_record" />
         <option value="benchmark" />
         <option value="channel" />
         <option value="controller" />
+        <option value="erb:controller" />
+        <option value="erb:mailer" />
+        <option value="erb:scaffold" />
         <option value="generator" />
         <option value="helper" />
         <option value="integration_test" />
@@ -488,6 +505,13 @@
               <RakeTaskImpl description="Setup Importmap for the app" fullCommand="importmap:install" id="install" />
             </subtasks>
           </RakeTaskImpl>
+          <RakeTaskImpl id="livereload">
+            <subtasks>
+              <RakeTaskImpl description="Disable Hotwire::Livereload" fullCommand="livereload:disable" id="disable" />
+              <RakeTaskImpl description="Enable Hotwire::Livereload" fullCommand="livereload:enable" id="enable" />
+              <RakeTaskImpl description="Install Hotwire::Livereload into the app" fullCommand="livereload:install" id="install" />
+            </subtasks>
+          </RakeTaskImpl>
           <RakeTaskImpl id="log">
             <subtasks>
               <RakeTaskImpl description="Truncate all/specified *.log files in log/ to zero bytes (specify which logs with LOGS=test,development)" fullCommand="log:clear" id="clear" />
@@ -510,6 +534,14 @@
                   <RakeTaskImpl description="Update the Stimulus manifest (will overwrite controllers/index.js)" fullCommand="stimulus:manifest:update" id="update" />
                 </subtasks>
               </RakeTaskImpl>
+            </subtasks>
+          </RakeTaskImpl>
+          <RakeTaskImpl id="tailwindcss">
+            <subtasks>
+              <RakeTaskImpl description="Build your Tailwind CSS" fullCommand="tailwindcss:build" id="build" />
+              <RakeTaskImpl description="Remove CSS builds" fullCommand="tailwindcss:clobber" id="clobber" />
+              <RakeTaskImpl description="Install Tailwind CSS into the app" fullCommand="tailwindcss:install" id="install" />
+              <RakeTaskImpl description="Watch and build your Tailwind CSS on file changes" fullCommand="tailwindcss:watch" id="watch" />
             </subtasks>
           </RakeTaskImpl>
           <RakeTaskImpl description="Run all tests in test folder except system ones" fullCommand="test" id="test" />

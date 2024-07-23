@@ -1,0 +1,58 @@
+<% if notice.present? %>
+	<div class="mb-5 inline-block rounded-lg bg-green-50 px-3 py-2 font-medium text-green-500 notice">
+		<%= notice %>
+	</div>
+<% end %>
+<div class="flex flex-row justify-between">
+	<h1>Products</h1>
+	<%= link_to "New Product", new_product_path, class: "blue-btn" %>
+</div>
+
+<table class="mx-auto">
+	<tfoot>
+	<tr>
+		<td colspan="3">
+			<div class="mt-8">
+				<%= link_to 'New Product',
+				            new_product_path,
+				            class: "inline rounded-lg py-3 px-5 bg-green-600 text-white block font-medium" %>
+			</div>
+		</td>
+	</tr>
+	</tfoot>
+	<tbody>
+	<% @products.each do |product| %>
+		<tr class="<%= cycle('bg-green-50', 'bg-white') %>">
+
+			<td class="px-2 py-3">
+				<%= image_tag(product.images.first.url, class: 'size-48') %>
+			</td>
+
+			<td>
+				<h2 class="mb-3 text-xl font-bold"><%= product.name %></h2>
+				<p>
+					<%= truncate(strip_tags(product.description), length: 80) %>
+				</p>
+				<p>
+					<%= product.price %> $
+				</p>
+				<p>
+					<%= product.brand.name %>
+				</p>
+				<p>
+					<%= product.category.name %>
+				</p>
+
+			</td>
+
+			<td class="px-2 py-3">
+				<div class="flex flex-col gap-4">
+					<%= link_to 'Show', product, class: "gray-btn" %>
+					<%= link_to 'Edit', edit_product_path(product), class: "gray-btn" %>
+					<%= link_to 'Delete', product, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "gray-btn" %>
+		</tr>
+	<% end %>
+	</tbody>
+</table>
+
+<%#= render @products %>

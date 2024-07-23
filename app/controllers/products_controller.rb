@@ -1,21 +1,20 @@
 # frozen_string_literal: true
 
 class ProductsController < ApplicationController
-  before_action :set_collections
+  before_action :set_collections, only: %i[new edit create update]
+  before_action :set_product, only: %i[show edit update destroy]
+
   def new
     @product = Product.new
   end
 
   def create
-    @product = Product.new(product_params)
+    @product = Product.new(product_params.except(:images))
 
     if @product.save
       if params[:product][:images].present?
-        images = Array(params[:product][:images])
-        images.each do |image|
-          @product.images.attach(image)
-          # @product.images.create(url: @product.images.last.key)
-        end
+        images = params[:product][:images]
+        process_images(images)
       end
       redirect_to new_product_path, notice: 'Product was successfully created.'
     else
@@ -24,27 +23,21 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all
+    @products = Product.all.reverse
   end
 
-  def show
-    @product = Product.find(params[:id])
-  end
+  def show; end
 
   def edit
-    @product = Product.find(params[:id])
     @product.images.build if @product.images.empty?
   end
 
   def update
-    @product = Product.find(params[:id])
-    if @product.update(product_params)
+    if @product.update(product_params.except(:images))
       if params[:product][:images].present?
-        images = Array(params[:product][:images])
-        images.each do |image|
-          @product.images.attach(image)
-          # @product.images.create(url: @product.images.last.key)
-        end
+        @product.images.destroy_all
+        images = params[:product][:images]
+        process_images(images)
       end
       redirect_to product_path(@product), notice: 'Product was successfully updated.'
     else
@@ -53,7 +46,6 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
     @product.destroy
     redirect_to product_params, notice: 'Product was successfully destroyed.'
   end
@@ -68,5 +60,19 @@ class ProductsController < ApplicationController
   def set_collections
     @brands = Brand.all
     @categories = Category.all
+  end
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  def process_images(images)
+    filtered_image = images.compact
+    filtered_image.each do |image|
+      img_url = ImageUploader.upload(image, @product.id)
+      @product.images.create!(url: img_url)
+    rescue StandardError => e
+      Rails.logger.debug("Error uploading image: #{e.message}")
+    end
   end
 end

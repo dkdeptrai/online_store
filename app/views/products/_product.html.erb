@@ -1,0 +1,21 @@
+<div class="my-5">
+	<h2><%= product.name %></h2>
+	<p><%= product.code %></p>
+	<p><%= product.heel_height %></p>
+	<p><%= product.description %></p>
+	<p><%= product.price %></p>
+	<p><%= product.category.name %></p>
+	<p><%= product.brand.name %></p>
+	<div class="flex flex-row gap-4">
+		<% if product.images %>
+			<% product.images.each do |image| %>
+				<%= image_tag image.url, class: "size-48 object-cover" %>
+			<% end %>
+		<% end %>
+	</div>
+	<div class="flex flex-row gap-4">
+		<%= link_to 'Show', product, class: "gray-btn" %>
+		<%= link_to 'Edit', edit_product_path(product), class: "gray-btn" %>
+	</div>
+</div>
+

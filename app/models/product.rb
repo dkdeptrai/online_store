@@ -1,12 +1,36 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: products
+#
+#  id          :bigint           not null, primary key
+#  code        :string
+#  description :text
+#  heel_height :string
+#  name        :string
+#  price       :decimal(, )
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  brand_id    :bigint           not null
+#  category_id :bigint           not null
+#
+# Indexes
+#
+#  index_products_on_brand_id     (brand_id)
+#  index_products_on_category_id  (category_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (brand_id => brands.id)
+#  fk_rails_...  (category_id => categories.id)
+#
 # app/models/product.rb
 class Product < ApplicationRecord
   belongs_to :category
   belongs_to :brand
-  has_many_attached :images
-
-  after_save :create_image_records
+  has_many :images, dependent: :destroy
+  # after_save :create_image_records
 
   validates :name, presence: true
   validates :price, presence: true
@@ -14,11 +38,11 @@ class Product < ApplicationRecord
   validates :brand_id, presence: true
   validates :description, presence: true
 
-  private
+  # private
 
-  def create_image_records
-    images.each do |attached_image|
-      Image.create!(product_id: id, url: Cloudinary::Utils.cloudinary_url(attached_image.key))
-    end
-  end
+  # def create_image_records
+  #   images.each do |attached_image|
+  #     Image.create!(product_id: id, url: Cloudinary::Utils.cloudinary_url(attached_image.key))
+  #   end
+  # end
 end

@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Online Store</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+	<title>Online Store</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<%= csrf_meta_tags %>
+	<%= csp_meta_tag %>
+	<%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+	<%= stylesheet_link_tag "application", "data-turbo-track": Rails.env.production? ? "reload" : "" %>
+	<%= javascript_importmap_tags %>
+	<%= hotwire_livereload_tags if Rails.env.development? %>
+</head>
 
-  <body>
-  <div><%= notice %></div>
-  <div><%= alert %></div>
-  <% if user_signed_in? %>
-    <%= link_to "Edit Password", edit_password_path %>
-    <%= button_to "Log out", session_path, method: :delete %>
-  <% else %>
-    <%= link_to "Sign Up", new_registration_path %>
-    <%= link_to "Log In", new_session_path %>
-  <% end %>
-    <%= yield %>
-  </body>
+<body class="w-full px-20">
+<div><%= notice %></div>
+<div><%= alert %></div>
+<% if user_signed_in? %>
+	<%= link_to "Edit Password", edit_password_path %>
+	<%= button_to "Log out", session_path, method: :delete %>
+<% else %>
+	<%= link_to "Sign Up", new_registration_path %>
+	<%= link_to "Log In", new_session_path %>
+<% end %>
+<%= yield %>
+</body>
 </html>

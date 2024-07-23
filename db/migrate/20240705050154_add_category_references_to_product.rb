@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddCategoryReferencesToProduct < ActiveRecord::Migration[7.1]
   def change
     add_reference :products, :category, null: false, foreign_key: true
