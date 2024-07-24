@@ -76,3 +76,5 @@ gem 'tailwindcss-rails', '~> 2.6'
 gem 'hotwire-livereload', '~> 1.4', group: :development
 
 gem 'annotate', '~> 3.2'
+
+gem 'minitest', '~> 5.24'

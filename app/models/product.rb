@@ -32,11 +32,12 @@ class Product < ApplicationRecord
   has_many :images, dependent: :destroy
   # after_save :create_image_records
 
-  validates :name, presence: true
-  validates :price, presence: true
+  validates :name, presence: true, uniqueness: true
+  validates :price, presence: true, numericality: { greater_than: 0 }
   validates :category_id, presence: true
   validates :brand_id, presence: true
   validates :description, presence: true
+  validates :heel_height, presence: true
 
   # private
 

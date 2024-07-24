@@ -20,7 +20,14 @@
 #
 # app/models/image.rb
 class Image < ApplicationRecord
-  belongs_to :product
+	belongs_to :product
 
-  validates :url, presence: true
+	VALID_IMAGE_URL_REGEX = /\Ahttps?:\/\/.*\.(gif|jpe?g|png|webp)\z/i
+
+	validates :url, presence: true
+	validates :url, format: {
+		with: VALID_IMAGE_URL_REGEX,
+		message: 'must be a valid URL for a GIF, JPG, JPEG, PNG, or WEBP image.'
+	}
+	validates :product_id, presence: true
 end
