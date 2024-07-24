@@ -1,0 +1,8 @@
+valid_product:
+  name: "Valid Product"
+  code: "VP-001"
+  description: "This is a valid product"
+  heel_height: "12cm"
+  brand: nike_brand
+  category: men_category
+  price: 10.00

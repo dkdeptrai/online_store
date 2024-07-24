@@ -30,7 +30,6 @@ class Product < ApplicationRecord
   belongs_to :category
   belongs_to :brand
   has_many :images, dependent: :destroy
-  # after_save :create_image_records
 
   validates :name, presence: true, uniqueness: true
   validates :price, presence: true, numericality: { greater_than: 0 }
@@ -38,12 +37,4 @@ class Product < ApplicationRecord
   validates :brand_id, presence: true
   validates :description, presence: true
   validates :heel_height, presence: true
-
-  # private
-
-  # def create_image_records
-  #   images.each do |attached_image|
-  #     Image.create!(product_id: id, url: Cloudinary::Utils.cloudinary_url(attached_image.key))
-  #   end
-  # end
 end

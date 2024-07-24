@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
         images = params[:product][:images]
         process_images(images)
       end
-      redirect_to new_product_path, notice: 'Product was successfully created.'
+      redirect_to product_path(@product), notice: 'Product was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -26,7 +26,9 @@ class ProductsController < ApplicationController
     @products = Product.all.reverse
   end
 
-  def show; end
+  def show
+    @product = Product.find(params[:id])
+  end
 
   def edit
     @product.images.build if @product.images.empty?
