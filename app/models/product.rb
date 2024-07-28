@@ -31,6 +31,7 @@ class Product < ApplicationRecord
   belongs_to :brand
   has_many :images, dependent: :destroy
 
+  validates :code, presence: true, uniqueness: true
   validates :name, presence: true, uniqueness: true
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates :category_id, presence: true

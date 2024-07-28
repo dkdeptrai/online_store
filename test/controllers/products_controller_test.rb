@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'minitest/autorun'
 require 'test_helper'
 
 class ProductsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @product = products(:valid_product)
+    @product = products(:valid_product1)
     @image = images(:valid_image1)
     @name = "The Great Product #{rand(1000)}"
   end

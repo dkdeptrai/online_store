@@ -1,6 +1,26 @@
-valid_product:
-  name: "Valid Product"
+#@formatter:off
+
+valid_product1:
+  name: "Valid Product 1"
   code: "VP-001"
+  description: "This is a valid product"
+  heel_height: "12cm"
+  brand: nike_brand
+  category: men_category
+  price: 10.00
+
+valid_product2:
+  name: "Valid Product 2"
+  code: "VP-002"
+  description: "This is a valid product"
+  heel_height: "12cm"
+  brand: nike_brand
+  category: men_category
+  price: 10.00
+
+valid_product3:
+  name: "Valid Product 3"
+  code: "VP-003"
   description: "This is a valid product"
   heel_height: "12cm"
   brand: nike_brand

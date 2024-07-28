@@ -1,7 +1,25 @@
+#@formatter:off
+
 valid_image1:
   url: "https://res.cloudinary.com/ddcoits0u/image/upload/v1721666041/qspepyoact1gtbm5px7a.jpg"
-  product: valid_product
+  product: valid_product1
 
 valid_image2:
   url: "https://res.cloudinary.com/ddcoits0u/image/upload/v1721666041/qspepyoact1gtbm5px7a.jpg"
-  product: valid_product
+  product: valid_product1
+
+valid_image3:
+  url: "https://res.cloudinary.com/ddcoits0u/image/upload/v1721666041/qspepyoact1gtbm5px7a.jpg"
+  product: valid_product2
+
+valid_image4:
+  url: "https://res.cloudinary.com/ddcoits0u/image/upload/v1721666041/qspepyoact1gtbm5px7a.jpg"
+  product: valid_product2
+
+valid_image5:
+  url: "https://res.cloudinary.com/ddcoits0u/image/upload/v1721666041/qspepyoact1gtbm5px7a.jpg"
+  product: valid_product3
+
+valid_image6:
+  url: "https://res.cloudinary.com/ddcoits0u/image/upload/v1721666041/qspepyoact1gtbm5px7a.jpg"
+  product: valid_product3

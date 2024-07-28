@@ -23,3 +23,11 @@
 h1 {
 	@apply text-4xl font-bold;
 }
+
+.notice {
+	@apply text-red-500 bg-yellow-200;
+}
+
+.alert {
+	@apply text-white bg-red-500;
+}

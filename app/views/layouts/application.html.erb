@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Online Store</title>
+
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<%= csrf_meta_tags %>
 	<%= csp_meta_tag %>
@@ -10,18 +11,40 @@
 	<%= stylesheet_link_tag "application", "data-turbo-track": Rails.env.production? ? "reload" : "" %>
 	<%= javascript_importmap_tags %>
 	<%= hotwire_livereload_tags if Rails.env.development? %>
+	<%= favicon_link_tag asset_path("shopping-cart.svg") %>
 </head>
 
-<body class="w-full px-20">
-<div><%= notice %></div>
-<div><%= alert %></div>
-<% if user_signed_in? %>
-	<%= link_to "Edit Password", edit_password_path %>
-	<%= button_to "Log out", session_path, method: :delete %>
-<% else %>
-	<%= link_to "Sign Up", new_registration_path %>
-	<%= link_to "Log In", new_session_path %>
-<% end %>
-<%= yield %>
+<body class="w-full">
+<header class="bg-green-700">
+	<%= image_tag asset_path("shopping-cart.svg"), alt: 'Online Store', class: "size-12" %>
+	<h1><%= @page_title %></h1>
+	<% if user_signed_in? %>
+		<%= link_to "Edit Password", edit_password_path %>
+		<%= button_to "Log out", session_path, method: :delete %>
+	<% else %>
+		<%= link_to "Sign Up", new_registration_path %>
+		<%= link_to "Log In", new_session_path %>
+	<% end %>
+</header>
+<div class="flex h-full flex-row">
+	<section class="flex sidebar">
+		<nav class="bg-green-900 p-6">
+			<ul class="leading-8 text-gray-300">
+				<li><a href="/">Home</a></li>
+				<li><a href="/questions">Questions</a></li>
+				<li><a href="/news">News</a></li>
+				<li><a href="/contacts">Contacts</a></li>
+				<li><%= DateTime.now.strftime('%d/%m/%Y %H:%M') %></li>
+
+			</ul>
+		</nav>
+	</section>
+
+	<main class="container mx-auto mt-4 flex px-5">
+		<div class="notice"><%= notice %></div>
+		<div class="alert"><%= alert %></div>
+		<%= yield %>
+	</main>
+</div>
 </body>
 </html>

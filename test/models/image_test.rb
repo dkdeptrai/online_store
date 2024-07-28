@@ -5,7 +5,7 @@ require 'test_helper'
 
 class ImageTest < ActiveSupport::TestCase
   def setup
-    @product = products(:valid_product)
+    @product = products(:valid_product1)
     assert @product.present?, 'Product should be present for the test.'
   end
 
@@ -37,7 +37,7 @@ class ImageTest < ActiveSupport::TestCase
   end
 
   test 'product is not valid without a unique name' do
-    product = Product.new(name: products(:valid_product).name, description: 'yyy', price: 1,
+    product = Product.new(name: products(:valid_product1).name, description: 'yyy', price: 1,
                           category: categories(:kids_category), brand: brands(:nike_brand), heel_height: '5 cm')
 
     assert product.invalid?

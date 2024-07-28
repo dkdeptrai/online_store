@@ -1,0 +1,30 @@
+<div class="w-full">
+	<% if notice.present? %>
+		<p class="mb-5 inline-block rounded-lg bg-green-50 px-3 py-2 font-medium text-green-500 notice">
+			<%= notice %>
+		</p>
+	<% end %>
+	<h1>Products Catalog</h1>
+	<ul>
+		<%= cache @products do %>
+
+			<% @products.each do |product| %>
+				<%= cache product do %>
+
+					<li class="mb-6 flex flex-row">
+						<%= image_tag(product.images.first.url, class: "object-center w-48 mr-6") %>
+						<div>
+							<h2><%= product.name %></h2>
+							<p><%= sanitize(product.description) %></p>
+							<p><%= number_to_currency(product.price) %></p>
+							<p><%= product.brand.name %></p>
+							<p><%= product.category.name %></p>
+							<p><%= product.heel_height %></p>
+						</div>
+					</li>
+				<% end %>
+			<% end %>
+		<% end %>
+	</ul>
+</div>
+
