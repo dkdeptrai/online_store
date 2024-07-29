@@ -13,7 +13,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
   test 'should create product with 1 associated image' do
     assert_difference('Product.count') do
       assert_difference('Image.count') do
-        post products_url, params: {
+        post products_path, params: {
           product: {
             name: @name,
             description: @product.description,
@@ -26,13 +26,13 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
         }
       end
     end
-    assert_redirected_to product_url(Product.last)
+    assert_redirected_to product_path(Product.last)
   end
 
   test 'should create product with 2 associated images' do
     assert_difference('Product.count') do
       assert_difference('Image.count', 2) do
-        post products_url, params: {
+        post products_path, params: {
           product: {
             name: @name,
             description: @product.description,
@@ -45,11 +45,11 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
         }
       end
     end
-    assert_redirected_to product_url(Product.last)
+    assert_redirected_to product_path(Product.last)
   end
 
   test 'should update product' do
-    patch product_url(@product), params: {
+    patch product_path(@product), params: {
       product: {
         name: @name,
         description: @product.description,
@@ -60,6 +60,22 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
       }
     }
 
-    assert_redirected_to product_url(@product)
+    assert_redirected_to product_path(@product)
+  end
+
+  test 'should destroy product' do
+    assert_difference('Product.count', -1) do
+      delete product_path(@product)
+    end
+
+    assert_redirected_to products_path
+  end
+
+  test 'must not destroy product in cart' do
+    assert_no_difference('Product.count') do
+      delete product_path(products(:valid_product1))
+    end
+
+    assert_redirected_to products_path
   end
 end

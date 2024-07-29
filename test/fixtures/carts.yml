@@ -1,17 +1,11 @@
 # == Schema Information
 #
-# Table name: categories
+# Table name: carts
 #
 #  id         :bigint           not null, primary key
-#  name       :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-women_category:
-  name: "Woman's"
+one: {}
 
-men_category:
-  name: "Men's"
-
-kids_category:
-  name: "Kids"
+two: {}

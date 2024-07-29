@@ -30,6 +30,9 @@ class Product < ApplicationRecord
   belongs_to :category
   belongs_to :brand
   has_many :images, dependent: :destroy
+  has_many :line_items
+
+  before_destroy :ensure_not_referenced_by_any_line_item
 
   validates :code, presence: true, uniqueness: true
   validates :name, presence: true, uniqueness: true
@@ -38,4 +41,13 @@ class Product < ApplicationRecord
   validates :brand_id, presence: true
   validates :description, presence: true
   validates :heel_height, presence: true
+
+  private
+
+  def ensure_not_referenced_by_any_line_item
+    return if line_items.empty?
+
+    errors.add(:base, 'Line Items present')
+    throw :abort
+  end
 end

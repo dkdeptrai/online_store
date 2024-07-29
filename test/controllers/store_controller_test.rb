@@ -12,4 +12,3 @@ class StoreControllerTest < ActionDispatch::IntegrationTest
     assert_select 'div', /\$[,\d]+\.\d\d/
   end
 end
-

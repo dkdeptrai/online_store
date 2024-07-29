@@ -25,9 +25,9 @@ h1 {
 }
 
 .notice {
-	@apply text-red-500 bg-yellow-200;
+	@apply font-semibold inline-block rounded-lg bg-green-50 text-green-600 mx-auto p-2;
 }
 
 .alert {
-	@apply text-white bg-red-500;
+	@apply font-semibold inline-block rounded-lg bg-red-500 text-white mx-auto p-2;
 }
