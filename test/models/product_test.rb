@@ -26,6 +26,7 @@
 #  fk_rails_...  (category_id => categories.id)
 #
 require 'minitest/autorun'
+require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
   test 'product attributes must not be empty' do

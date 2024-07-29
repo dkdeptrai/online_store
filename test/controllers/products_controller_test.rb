@@ -16,6 +16,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
         post products_path, params: {
           product: {
             name: @name,
+            code: "code#{rand(10_000)}",
             description: @product.description,
             price: @product.price,
             brand_id: @product.brand_id,
@@ -35,6 +36,8 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
         post products_path, params: {
           product: {
             name: @name,
+            code: "code#{rand(10_000)}",
+
             description: @product.description,
             price: @product.price,
             brand_id: @product.brand_id,
@@ -52,6 +55,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
     patch product_path(@product), params: {
       product: {
         name: @name,
+        code: "code#{rand(10_000)}",
         description: @product.description,
         price: @product.price,
         brand_id: @product.brand_id,
@@ -65,7 +69,7 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should destroy product' do
     assert_difference('Product.count', -1) do
-      delete product_path(@product)
+      delete product_path(products(:valid_product3))
     end
 
     assert_redirected_to products_path

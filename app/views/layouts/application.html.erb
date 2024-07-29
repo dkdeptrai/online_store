@@ -14,7 +14,7 @@
 	<%= favicon_link_tag asset_path("shopping-cart.svg") %>
 </head>
 
-<body class="w-full">
+<body class="w-full h-screen flex flex-col">
 <header class="bg-green-700">
 	<%= image_tag asset_path("shopping-cart.svg"), alt: 'Online Store', class: "size-12" %>
 	<h1><%= @page_title %></h1>
@@ -26,7 +26,7 @@
 		<%= link_to "Log In", new_session_path %>
 	<% end %>
 </header>
-<div class="flex h-full flex-row">
+<div class="flex h-full flex-row grow">
 	<section class="flex sidebar">
 		<nav class="bg-green-900 p-6">
 			<ul class="leading-8 text-gray-300">
@@ -53,5 +53,8 @@
 		<%= yield %>
 	</main>
 </div>
+<footer>
+	<p>&copy; <%= DateTime.now.year %> Online Store</p>
+</footer>
 </body>
 </html>

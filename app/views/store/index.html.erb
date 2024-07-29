@@ -1,9 +1,4 @@
 <div class="w-full">
-	<% if notice.present? %>
-		<p class="mb-5 inline-block rounded-lg bg-green-50 px-3 py-2 font-medium text-green-500 notice">
-			<%= notice %>
-		</p>
-	<% end %>
 	<h1>Products Catalog</h1>
 	<% if session[:counter] >= 5 %>
 	<p class="my-4">You have visited this page <%= pluralize(session[:counter], 'time') %> since last product was added to cart</p>
