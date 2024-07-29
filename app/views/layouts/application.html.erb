@@ -16,7 +16,7 @@
 
 <body class="w-full h-screen flex flex-col">
 <header class="bg-green-700">
-	<%= image_tag asset_path("shopping-cart.svg"), alt: 'Online Store', class: "size-12" %>
+	<%= link_to image_tag(asset_path("shopping-cart.svg"), alt: 'Online Store', class: "size-12"), store_index_path %>
 	<h1><%= @page_title %></h1>
 	<% if user_signed_in? %>
 		<%= link_to "Edit Password", edit_password_path %>
