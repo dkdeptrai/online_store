@@ -1,7 +1,9 @@
 <div class="w-full">
+	<%= render 'notice' %>
 	<h1>Products Catalog</h1>
 	<% if session[:counter] >= 5 %>
-	<p class="my-4">You have visited this page <%= pluralize(session[:counter], 'time') %> since last product was added to cart</p>
+		<p class="my-4">You have visited this page <%= pluralize(session[:counter], 'time') %> since last product was added
+			to cart</p>
 	<% end %>
 	<ul>
 		<%= cache @products do %>

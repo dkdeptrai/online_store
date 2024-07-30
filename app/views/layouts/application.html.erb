@@ -29,22 +29,23 @@
 <div class="flex h-full flex-row grow">
 	<section class="flex sidebar">
 		<nav class="bg-green-900 p-6">
+			<%= render partial: 'layouts/cart', locals: { cart: @cart } %>
+
 			<ul class="leading-8 text-gray-300">
 				<li><a href="/">Home</a></li>
 				<li><a href="/questions">Questions</a></li>
 				<li><a href="/news">News</a></li>
 				<li><a href="/contacts">Contacts</a></li>
 				<li><%= DateTime.now.strftime('%d/%m/%Y %H:%M') %></li>
-
 			</ul>
 		</nav>
 	</section>
 
 	<main class="container mx-auto mt-4 flex flex-col px-5">
 
-		<% if notice.present? %>
-			<p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-		<% end %>
+		<%# if notice.present? %>
+		<!--			<p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%#= notice %></p>-->
+		<%# end %>
 
 		<% if alert.present? %>
 			<p class="py-2 px-3 bg-red-50 mb-5 text-red-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
