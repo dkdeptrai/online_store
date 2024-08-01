@@ -1,7 +1,5 @@
 <% if @cart and not @cart.line_items.empty? %>
-	<div id="cart" class="bg-white rounded p-2">
-		<%= render @cart %>
-	</div>
+	<%= render @cart %>
 <% else %>
 	<div id="cart"></div>
 <% end %>

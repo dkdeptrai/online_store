@@ -14,7 +14,8 @@
 	<%= favicon_link_tag asset_path("shopping-cart.svg") %>
 </head>
 
-<body class="w-full h-screen flex flex-col">
+<body class="w-full flex flex-col">
+<%= turbo_stream_from 'carts' %>
 <header class="bg-green-700">
 	<%= link_to image_tag(asset_path("shopping-cart.svg"), alt: 'Online Store', class: "size-12"), store_index_path %>
 	<h1><%= @page_title %></h1>
@@ -29,6 +30,7 @@
 <div class="flex h-full flex-row grow">
 	<section class="flex sidebar">
 		<nav class="bg-green-900 p-6">
+
 			<%= render partial: 'layouts/cart', locals: { cart: @cart } %>
 
 			<ul class="leading-8 text-gray-300">
@@ -53,9 +55,11 @@
 
 		<%= yield %>
 	</main>
+
 </div>
-<footer>
+<footer class="w-full">
 	<p>&copy; <%= DateTime.now.year %> Online Store</p>
 </footer>
+
 </body>
 </html>

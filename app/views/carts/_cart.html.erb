@@ -1,16 +1,18 @@
 <div id="<%= dom_id cart %>">
-	<h2 class="font-bold text-lg mb-3">Your Products Cart</h2>
-	<table class="table-auto">
+	<div id="cart" class="bg-white rounded p-2">
+		<h2 class="font-bold text-lg mb-3">Your Products Cart</h2>
+		<table class="table-auto">
 
-		<%= render cart.line_items %>
-		
-		<tfoot>
-		<tr>
-			<th class="text-left pr-2 pt-2" colspan="3">Total:</th>
-			<td class="text-right pt-2 font-bold border-t-2 border-black"><%= number_to_currency(cart.total_price) %></td>
-		</tr>
-		</tfoot>
-	</table>
+			<%= render cart.line_items %>
 
-	<%= button_to "Empty Cart", cart, method: :delete, class: " rounded-lg py-1 px-2 text-white bg-green-600" %>
+			<tfoot>
+			<tr>
+				<th class="text-left pr-2 pt-2" colspan="3">Total:</th>
+				<td class="text-right pt-2 font-bold border-t-2 border-black"><%= number_to_currency(cart.total_price) %></td>
+			</tr>
+			</tfoot>
+		</table>
+
+		<%= button_to "Empty Cart", cart, method: :delete, class: " rounded-lg py-1 px-2 text-white bg-green-600" %>
+	</div>
 </div>

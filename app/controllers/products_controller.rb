@@ -41,6 +41,8 @@ class ProductsController < ApplicationController
         images = params[:product][:images]
         process_images(images)
       end
+      @product.broadcast_replace_later_to 'products',
+                                          partial: 'store/product'
       redirect_to product_path(@product), notice: 'Product was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
