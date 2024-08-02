@@ -15,6 +15,11 @@
 			</tfoot>
 		</table>
 
-		<%= button_to "Empty Cart", cart, method: :delete, class: " rounded-lg py-1 px-2 text-white bg-green-600" %>
+		<div class="flex flex-row gap-4">
+
+			<%= button_to "Empty Cart", cart, method: :delete, class: "rounded-lg py-1 px-2 text-white bg-green-600" %>
+			<%= button_to "Check Out", new_order_path, method: :get, class: "rounded-lg py-1 px-2 text-black bg-green-200" %>
+		</div>
+
 	</div>
 </div>

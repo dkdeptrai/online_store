@@ -32,9 +32,10 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.turbo_stream {
+        format.turbo_stream do
           @current_item = @line_item
-          render 'create', locals: { notice: 'Line item successfully created.' } }
+          render 'create', locals: { notice: 'Line item successfully created.' }
+        end
         format.html { redirect_to store_index_path }
         format.json { render :show, status: :created, location: @line_item }
       else

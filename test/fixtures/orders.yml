@@ -1,0 +1,26 @@
+# @formatter:off
+
+# == Schema Information
+#
+# Table name: orders
+#
+#  id         :bigint           not null, primary key
+#  address    :text
+#  email      :string
+#  name       :string
+#  pay_type   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  name: John Doe
+  address: MyText
+  email: johndoe@gmail.com
+  pay_type: Check
+
+two:
+  name: MyString
+  address: MyText
+  email: MyString
+  pay_type: 1
