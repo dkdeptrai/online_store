@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class CartsChannel < ApplicationCable::Channel
   def subscribed
-    # stream_from "some_channel"
+    stream_from 'carts'
   end
 
   def unsubscribed

@@ -5,8 +5,8 @@ class LineItemsController < ApplicationController
   include CurrentCart
   include VisitCounter
 
-  before_action :set_cart, only: %i[create]
-  before_action :set_line_item, only: %i[show edit update destroy]
+  before_action :set_cart, only: %i[create destroy decrease_quantity]
+  before_action :set_line_item, only: %i[show edit update destroy decrease_quantity]
 
   # GET /line_items or /line_items.json
   def index
@@ -32,7 +32,9 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.turbo_stream { @current_item = @line_item }
+        format.turbo_stream {
+          @current_item = @line_item
+          render 'create', locals: { notice: 'Line item successfully created.' } }
         format.html { redirect_to store_index_path }
         format.json { render :show, status: :created, location: @line_item }
       else
@@ -60,8 +62,30 @@ class LineItemsController < ApplicationController
     @line_item.destroy!
 
     respond_to do |format|
+      format.turbo_stream do
+        render 'destroy', locals: { notice: 'Line item was successfully destroyed.' }
+      end
       format.html { redirect_to store_index_path, notice: 'Line item was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def decrease_quantity
+    @line_item.decrement!(:quantity)
+
+    respond_to do |format|
+      if @line_item.quantity.zero?
+        @line_item.destroy!
+        format.turbo_stream do
+          render 'destroy', locals: { notice: 'Line item was successfully destroyed.' }
+        end
+      elsif @line_item.save!
+        format.turbo_stream do
+          @current_item = @line_item
+        end
+      else
+        format.html { redirect_to store_index_path, notice: 'Line item quantity was not decreased.' }
+      end
     end
   end
 

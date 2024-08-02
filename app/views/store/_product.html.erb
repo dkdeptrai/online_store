@@ -1,6 +1,8 @@
 <%= turbo_frame_tag(dom_id(product)) do %>
 	<li class="mb-6 flex flex-row">
-		<%= image_tag(product.images.first.url, class: "object-center w-48 mr-6") %>
+		<%= button_to line_items_path(product_id: product), method: :post, class: "inline-flex items-center w-48 mr-6", form_class: "inline" do %>
+			<%= image_tag(product.images.first.url, class: "object-center ") %>
+		<% end %>
 		<div>
 			<h2><%= product.name %></h2>
 			<p><%= sanitize(product.description) %></p>

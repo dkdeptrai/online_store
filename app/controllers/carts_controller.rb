@@ -11,9 +11,9 @@ class CartsController < ApplicationController
 
   # GET /carts/1 or /carts/1.json
   def show
-    if @cart.id != session[:cart_id]
-      redirect_to store_index_path, notice: 'Invalid cart'
-    end
+    return unless @cart.id != session[:cart_id]
+
+    redirect_to store_index_path, notice: 'Invalid cart'
   end
 
   # GET /carts/new

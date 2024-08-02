@@ -1,3 +1,4 @@
+# @formatter:off
 # == Schema Information
 #
 # Table name: line_items
@@ -20,10 +21,13 @@
 #  fk_rails_...  (product_id => products.id)
 #
 
+
 one:
   product: valid_product1
   cart: one
+  quantity: 1
 
 two:
   product: valid_product2
   cart: two
+  quantity: 2
