@@ -4,7 +4,9 @@ require 'test_helper'
 
 class OrdersControllerTest < ActionDispatch::IntegrationTest
   setup do
+
     @order = orders(:one)
+    @cart = carts(:one)
   end
 
   test 'should get index' do

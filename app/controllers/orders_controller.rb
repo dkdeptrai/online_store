@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
   before_action :set_cart, only: %i[new create]
   before_action :ensure_cart_is_not_empty, only: %i[new create]
   before_action :set_order, only: %i[show edit update destroy]
+  before_action :set_pay_types, only: %i[new create edit update]
 
   # GET /orders or /orders.json
   def index
@@ -76,12 +77,19 @@ class OrdersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def order_params
-    params.require(:order).permit(:name, :address, :email, :pay_type)
+    params.require(:order).permit(:name, :address, :email, :pay_type_id, :routing_number, :account_number,
+                                  :credit_card_number, :expiration_date, :purchase_order_number)
   end
 
   def ensure_cart_is_not_empty
     return unless @cart.line_items.empty?
 
     redirect_to store_index_path, notice: 'Your cart is empty'
+  end
+
+  def set_pay_types
+    @pay_types = PayType.all.each_with_object({}) do |pay_type, hash|
+      hash[pay_type.name] = pay_type.id
+    end
   end
 end

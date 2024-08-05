@@ -9,10 +9,12 @@ export default class extends Controller {
 	}
 
 	showAdditionalFields() {
-		let selection = this.selectionTarget.value;
+		let selection = this.selectionTarget;
+
+		let selectedValue = selection.options[selection.selectedIndex].text;
 
 		for (let fields of this.additionalFieldsTargets) {
-			fields.disabled = fields.hidden = (fields.dataset.type !== selection);
+			fields.disabled = fields.hidden = (fields.dataset.type !== selectedValue);
 		}
 	}
 }
