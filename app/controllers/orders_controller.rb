@@ -34,9 +34,12 @@ class OrdersController < ApplicationController
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
 
-        format.html {
+        OrderMailer.received(@order).deliver_later
+
+        format.html do
           redirect_to store_index_path,
-                      notice: 'Order was successfully created. Thank you for your order.' }
+                      notice: 'Order was successfully created. Thank you for your order.'
+        end
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new, status: :unprocessable_entity }

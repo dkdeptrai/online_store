@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: pay_types
@@ -8,6 +10,7 @@
 #  updated_at :datetime         not null
 #
 class PayType < ApplicationRecord
-  has_many :orders
+  has_many :orders, dependent: :restrict_with_error
+
   validates :name, presence: true, uniqueness: true
 end

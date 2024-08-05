@@ -4,7 +4,6 @@ require 'test_helper'
 
 class OrdersControllerTest < ActionDispatch::IntegrationTest
   setup do
-
     @order = orders(:one)
     @cart = carts(:one)
   end
@@ -60,5 +59,4 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to store_index_url
     assert_equal 'Your cart is empty', flash[:notice]
   end
-
 end

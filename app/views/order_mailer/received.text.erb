@@ -1,0 +1,10 @@
+Dear <%= @order.name %>
+
+Thank you for your order from The Online Store. We will process it as soon as possible.
+
+Your ordered the following items:
+
+<%= render @order.line_items %>
+
+We will send you a separated e-mail when your order ships.
+

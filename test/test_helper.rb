@@ -7,6 +7,14 @@ require 'rails/test_help'
 module ActiveSupport
   class TestCase
     # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
+    # fixtures :brands
+    # fixtures :categories
+    # fixtures :products
+    # fixtures :images
+    # fixtures :pay_types
+    # fixtures :carts
+    # fixtures :line_items
+    # fixtures :orders
     fixtures :all
 
     # Add more helper methods to be used by all tests here...

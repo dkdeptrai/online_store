@@ -7,6 +7,7 @@ class LineItemsController < ApplicationController
 
   before_action :set_cart, only: %i[create destroy decrease_quantity]
   before_action :set_line_item, only: %i[show edit update destroy decrease_quantity]
+  before_action :set_context
 
   # GET /line_items or /line_items.json
   def index
@@ -100,5 +101,9 @@ class LineItemsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def line_item_params
     params.require(:line_item).permit(:product_id)
+  end
+
+  def set_context
+    @mailer_context = false
   end
 end

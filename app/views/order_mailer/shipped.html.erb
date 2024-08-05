@@ -1,0 +1,11 @@
+<h3>Online Order Shipped</h3>
+<p>
+	This is just to let you know your recent order has been shipped.
+</p>
+<table>
+	<tr>
+		<th colspan="2">Qty</th>
+		<th>Description</th>
+	</tr>
+	<%= render @order.line_items %>
+</table>

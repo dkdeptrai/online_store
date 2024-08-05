@@ -8,8 +8,13 @@
 #  updated_at :datetime         not null
 #
 
-one:
-  name: MyString
+#@formatter:off
 
-two:
-  name: MyString
+check:
+  name: Check
+
+credit:
+  name: Credit card
+
+purchase_order:
+  name: Purchase order

@@ -32,7 +32,6 @@ class CartsControllerTest < ActionDispatch::IntegrationTest
     get cart_url(@cart)
 
     assert_redirected_to store_index_path
-
   end
 
   test 'should get edit' do
