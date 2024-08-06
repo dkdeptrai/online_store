@@ -34,7 +34,8 @@ class OrdersController < ApplicationController
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
 
-        OrderMailer.received(@order).deliver_later
+        Rails.logger.info("Pay type params: #{pay_type_params.to_h}")
+        ChargeOrderJob.perform_later(@order, pay_type_params.to_h)
 
         format.html do
           redirect_to store_index_path,
@@ -80,8 +81,21 @@ class OrdersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def order_params
-    params.require(:order).permit(:name, :address, :email, :pay_type_id, :routing_number, :account_number,
-                                  :credit_card_number, :expiration_date, :purchase_order_number)
+    params.require(:order).permit(:name, :address, :email, :pay_type_id, :credit_card_number, :expiration_date,
+                                  :purchase_order_number, :routing_number, :account_number)
+  end
+
+  def pay_type_params
+    pay_type = PayType.find(order_params[:pay_type_id]).name
+
+    case pay_type
+    when 'Check'
+      params.require(:order).permit(:routing_number, :account_number)
+    when 'Credit Card'
+      params.require(:order).permit(:credit_card_number, :expiration_date)
+    when 'Purchase Order'
+      params.require(:order).permit(:purchase_order_number)
+    end
   end
 
   def ensure_cart_is_not_empty

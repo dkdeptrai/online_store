@@ -6,7 +6,6 @@ class OrderMailerTest < ActionMailer::TestCase
   setup do
     @order = orders(:one)
     @order.add_line_items_from_cart(carts(:one))
-
   end
 
   test 'received' do
@@ -28,4 +27,4 @@ class OrderMailerTest < ActionMailer::TestCase
     assert_equal ['onlinestore@example.com'], mail.from
     assert_match %r{<td[^>]*>1</td>\s*<td>&times;</td>\s*<td[^>]*>\s*Valid\sProduct\s1\s*</td>}x, mail.body.encoded
   end
-end
+end\
