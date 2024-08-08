@@ -1,0 +1,20 @@
+<div class="w-full md:w-2/3">
+	<%= form_tag login_path do %>
+		<h2 class="text-3xl font-bold">Please Log In</h2>
+
+		<div class="my-5">
+			<%= label_tag :name %>
+			<%= text_field_tag :name, params[:name], class: "input-field" %>
+		</div>
+
+		<div class="my-5">
+			<%= label_tag :password %>
+			<%= password_field_tag :password, params[:password], class: "input-field" %>
+		</div>
+
+		<div class="actions">
+			<%= submit_tag "Login", class: "rounded-md py-3 px-5 bg-green-600 text-black
+																			inline-block font-medium cursor-pointer" %>
+		</div>
+	<% end %>
+</div>

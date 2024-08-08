@@ -20,13 +20,7 @@
 	<header class="bg-green-700">
 		<%= link_to image_tag(asset_path("shopping-cart.svg"), alt: 'Online Store', class: "size-12"), store_index_path %>
 		<h1><%= @page_title %></h1>
-		<% if user_signed_in? %>
-			<%= link_to "Edit Password", edit_password_path %>
-			<%= button_to "Log out", session_path, method: :delete %>
-		<% else %>
-			<%= link_to "Sign Up", new_registration_path %>
-			<%= link_to "Log In", new_session_path %>
-		<% end %>
+
 	</header>
 	<div class="flex min-h-full h-auto flex-row">
 		<section class="flex h-full">
@@ -39,6 +33,17 @@
 					<li><a href="/contacts">Contacts</a></li>
 					<li><%= DateTime.now.strftime('%d/%m/%Y %H:%M') %></li>
 				</ul>
+
+				<% if session[:user_id] %>
+					<hr class="my-2">
+
+					<ul class="text-gray-300 leading-8">
+						<li><%= link_to 'Orders', orders_path %></li>
+						<li><%= link_to 'Products', products_path %></li>
+						<li><%= link_to 'Users', users_path %></li>
+						<li><%= link_to 'Logout', logout_path, data: { turbo_method: :delete } %></li>
+					</ul>
+				<% end %>
 			</nav>
 		</section>
 

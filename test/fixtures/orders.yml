@@ -13,6 +13,7 @@
 #  name                  :string
 #  purchase_order_number :string
 #  routing_number        :string
+#  ship_date             :datetime
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
 #  pay_type_id           :bigint

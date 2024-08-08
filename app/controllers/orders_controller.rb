@@ -3,6 +3,8 @@
 class OrdersController < ApplicationController
   include CurrentCart
 
+  skip_before_action :authorize, only: %i[new create]
+
   before_action :set_cart, only: %i[new create]
   before_action :ensure_cart_is_not_empty, only: %i[new create]
   before_action :set_order, only: %i[show edit update destroy]
@@ -53,6 +55,7 @@ class OrdersController < ApplicationController
   def update
     respond_to do |format|
       if @order.update(order_params)
+        NotifyShippedJob.perform_later(@order) if @order.saved_change_to_ship_date?
         format.html { redirect_to order_url(@order), notice: 'Order was successfully updated.' }
         format.json { render :show, status: :ok, location: @order }
       else
@@ -81,7 +84,7 @@ class OrdersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def order_params
-    params.require(:order).permit(:name, :address, :email, :pay_type_id, :credit_card_number, :expiration_date,
+    params.require(:order).permit(:name, :address, :email, :ship_date, :pay_type_id, :credit_card_number, :expiration_date,
                                   :purchase_order_number, :routing_number, :account_number)
   end
 

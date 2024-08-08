@@ -5,6 +5,8 @@ class LineItemsController < ApplicationController
   include CurrentCart
   include VisitCounter
 
+  skip_before_action :authorize, only: %i[create destroy decrease_quantity]
+
   before_action :set_cart, only: %i[create destroy decrease_quantity]
   before_action :set_line_item, only: %i[show edit update destroy decrease_quantity]
   before_action :set_context

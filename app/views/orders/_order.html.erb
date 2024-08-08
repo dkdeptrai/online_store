@@ -1,22 +1,39 @@
 <div id="<%= dom_id order %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= order.name %>
-  </p>
+	<p class="my-5">
+		<strong class="block font-medium mb-1">Name:</strong>
+		<%= order.name %>
+	</p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Address:</strong>
-    <%= order.address %>
-  </p>
+	<p class="my-5">
+		<strong class="block font-medium mb-1">Address:</strong>
+		<%= order.address %>
+	</p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Email:</strong>
-    <%= order.email %>
-  </p>
+	<p class="my-5">
+		<strong class="block font-medium mb-1">Email:</strong>
+		<%= order.email %>
+	</p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Pay type:</strong>
-    <%= order.pay_type %>
-  </p>
+	<p class="my-5">
+		<strong class="block font-medium mb-1">Pay type:</strong>
+		<%= order.pay_type.name %>
+	</p>
+
+	<p class="my-5">
+		<strong class="block font-medium mb-1">Ship date:</strong>
+		<%= order.ship_date.nil? ? "Not Shipped" : order.ship_date.strftime("%d/%m/%Y") %>
+	</p>
+
+
+	<table class="table-auto">
+
+		<%= render order.line_items.sort_by { |item| item.created_at }, show_button: false %>
+		<tfoot>
+		<tr>
+			<th class="text-left pr-2 pt-2" colspan="3">Total:</th>
+			<td class="text-right pt-2 font-bold border-t-2 border-black"><%= number_to_currency(order.total_price) %></td>
+		</tr>
+		</tfoot>
+	</table>
 
 </div>

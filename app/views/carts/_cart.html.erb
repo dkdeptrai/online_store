@@ -3,9 +3,7 @@
 		<h2 class="font-bold text-lg mb-3">Your Products Cart</h2>
 		<table class="table-auto">
 
-			<% cart.line_items.sort_by { |item| item.created_at }.each do |line_item| %>
-				<%= render partial: 'line_items/line_item', locals: { line_item: line_item } %>
-			<% end %>
+			<%= render cart.line_items.sort_by { |item| item.created_at }, show_button: true %>
 
 			<tfoot>
 			<tr>

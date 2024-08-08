@@ -13,6 +13,7 @@
 #  name                  :string
 #  purchase_order_number :string
 #  routing_number        :string
+#  ship_date             :datetime
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
 #  pay_type_id           :bigint
@@ -24,6 +25,7 @@
 # Foreign Keys
 #
 #  fk_rails_...  (pay_type_id => pay_types.id)
+#
 
 require 'active_model/serializers/json'
 require 'pago'
@@ -70,6 +72,13 @@ class Order < ApplicationRecord
     raise payment_result.error unless payment_result.succeeded?
 
     OrderMailer.received(self).deliver_later
+  end
 
+  def notify_shipped
+    OrderMailer.shipped(self).deliver_later
+  end
+
+  def total_price
+    line_items.to_a.sum(&:total_price)
   end
 end

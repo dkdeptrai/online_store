@@ -2,11 +2,13 @@
 
 class StoreController < ApplicationController
   include CurrentCart
+
+  skip_before_action :authorize
+
   before_action :set_cart
 
   def index
     update_counter
-
     @products = Product.order(:name)
   end
 

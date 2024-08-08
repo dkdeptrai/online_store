@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 20_240_805_083_645) do
+ActiveRecord::Schema[7.1].define(version: 20_240_807_081_049) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -95,6 +95,7 @@ ActiveRecord::Schema[7.1].define(version: 20_240_805_083_645) do
     t.string 'expiration_date'
     t.string 'purchase_order_number'
     t.bigint 'pay_type_id'
+    t.datetime 'ship_date'
     t.index ['pay_type_id'], name: 'index_orders_on_pay_type_id'
   end
 
@@ -119,7 +120,7 @@ ActiveRecord::Schema[7.1].define(version: 20_240_805_083_645) do
   end
 
   create_table 'users', force: :cascade do |t|
-    t.string 'email'
+    t.string 'name'
     t.string 'password_digest'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false

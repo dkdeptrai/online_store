@@ -4,6 +4,10 @@ require 'application_system_test_case'
 
 class OrdersTest < ApplicationSystemTestCase
   include ActiveJob::TestHelper
+
+  setup do
+    @order = orders(:one)
+  end
   test 'check dynamic fields' do
     visit store_index_path
 
@@ -76,5 +80,29 @@ class OrdersTest < ApplicationSystemTestCase
     assert_equal ['dave@example.com'], mail.to
     assert_equal 'Khoa Dep Trai <onlinestore@example.com>', mail[:from].value
     assert_equal 'The Online Store Order Confirmation', mail.subject
+  end
+
+  test 'notify when shipped' do
+    visit order_path(@order)
+
+    click_on 'Edit this order', match: :first
+
+    fill_in 'Ship date', with: Time.zone.today
+
+    click_on 'Edit Order'
+
+    assert_text 'Order was successfully updated.'
+
+    perform_enqueued_jobs
+    perform_enqueued_jobs
+    assert_performed_jobs 2
+
+    order = Order.find(orders(:one).id)
+    assert_equal Time.zone.today, order.ship_date
+
+    mail = ActionMailer::Base.deliveries.last
+    assert_equal [order.email], mail.to
+    assert_equal 'Khoa Dep Trai <onlinestore@example.com>', mail[:from].value
+    assert_equal 'The Online Store Order Shipped', mail.subject
   end
 end

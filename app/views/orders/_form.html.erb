@@ -40,8 +40,16 @@
 		<%= render partial: "check", locals: { form: form } %>
 		<%= render partial: "credit_card", locals: { form: form } %>
 		<%= render partial: "purchase_order", locals: { form: form } %>
+
+		<%# if order.ship_date %>
+		<div class="my-5">
+			<%= form.label :ship_date %>
+			<%= form.date_field :ship_date, class: "input-field" %>
+		</div>
+		<%# end %>
+
 	</div>
 	<div class="inline">
-		<%= form.submit "Place Order", class: "rounded-lg py-3 px-5 bg-green-200 text-black font-medium cursor-pointer" %>
+		<%= form.submit (action == "edit" ? "Edit Order" : "Place Order"), class: "rounded-lg py-3 px-5 bg-green-200 text-black font-medium cursor-pointer" %>
 	</div>
 <% end %>
