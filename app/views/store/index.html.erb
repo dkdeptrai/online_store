@@ -1,5 +1,5 @@
 <div class="w-full">
-	<h1>Products Catalog</h1>
+	<h1><%= t('.title_html') %></h1>
 	<%= turbo_stream_from 'products' %>
 
 	<% if session[:counter] >= 5 %>

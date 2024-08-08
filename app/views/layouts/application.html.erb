@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="h-full">
 <head>
-	<title>Online Store</title>
+	<title><%= t('.title') %></title>
 
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<%= csrf_meta_tags %>
@@ -27,10 +27,10 @@
 			<nav class="bg-green-900 p-6">
 				<%= render partial: 'layouts/cart', locals: { cart: @cart } %>
 				<ul class="leading-8 text-gray-300">
-					<li><a href="/">Home</a></li>
-					<li><a href="/questions">Questions</a></li>
-					<li><a href="/news">News</a></li>
-					<li><a href="/contacts">Contacts</a></li>
+					<li><a href="/"><%= t('.home') %></a></li>
+					<li><a href="/questions"><%= t('.questions') %></a></li>
+					<li><a href="/news"><%= t('.news') %></a></li>
+					<li><a href="/contact"><%= t('.contact') %></a></li>
 					<li><%= DateTime.now.strftime('%d/%m/%Y %H:%M') %></li>
 				</ul>
 

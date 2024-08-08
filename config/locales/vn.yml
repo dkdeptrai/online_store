@@ -1,0 +1,58 @@
+#@formatter:off
+
+vn:
+  layouts:
+    application:
+      title: "Cửa hàng trực tuyến"
+      home: "Trang chủ"
+      questions: "Câu hỏi"
+      news: "Tin tức"
+      contact: "Liên hệ"
+
+  store:
+    index:
+      title_html: "Danh mục cửa hàng trực tuyến"
+    product:
+      add_html: "Thêm vào giỏ hàng"
+
+  carts:
+    cart:
+      title: "Giỏ hàng của bạn"
+      empty_cart: "Xóa giỏ hàng"
+      check_out: "Thanh toán"
+
+  line_items:
+    line_item:
+      remove: "Xóa"
+
+  number:
+    currency:
+      format:
+        unit: "$"
+        precision: 2
+        separator: ","
+        delimiter: ""
+        format: "%n%u"
+
+  orders:
+    new:
+      legend: "Thông tin đơn hàng"
+    form:
+      name: "Tên"
+      address: "Địa chỉ"
+      email: "Email"
+      pay_type: "Phương thức thanh toán"
+      pay_type_prompt: "Chọn một phương thức thanh toán"
+      pay_types:
+        "Check": "Séc"
+        "Credit card": "Thẻ tín dụng"
+        "Purchase order": "Đơn đặt hàng"
+      place_order: "Đặt hàng"
+    check:
+      account_number: "Số tài khoản"
+      routing_number: "Số định tuyến"
+    credit_card:
+      credit_card_number: "Số thẻ tín dụng"
+      expiration_date: "Ngày hết hạn"
+    purchase_order:
+      purchase_order_number: "Số đơn đặt hàng"

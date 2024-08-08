@@ -1,6 +1,6 @@
 <div id="<%= dom_id cart %>">
 	<div id="cart" class="bg-white rounded p-2">
-		<h2 class="font-bold text-lg mb-3">Your Products Cart</h2>
+		<h2 class="font-bold text-lg mb-3"><%= t('.title') %></h2>
 		<table class="table-auto">
 
 			<%= render cart.line_items.sort_by { |item| item.created_at }, show_button: true %>
@@ -15,8 +15,8 @@
 
 		<div class="flex flex-row gap-4" data-controller="checkout">
 
-			<%= button_to "Empty Cart", cart, method: :delete, class: "rounded-lg py-1 px-2 text-white bg-green-600" %>
-			<%= button_to "Check Out",
+			<%= button_to t('.empty_cart'), cart, method: :delete, class: "rounded-lg py-1 px-2 text-white bg-green-600" %>
+			<%= button_to t('.check_out'),
 			              new_order_path,
 			              method: :get,
 			              'data-checkout-target' => 'checkoutButton',

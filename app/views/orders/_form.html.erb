@@ -12,26 +12,26 @@
 	<% end %>
 
 	<div class="my-5">
-		<%= form.label :name %>
+		<%= form.label :name, t('.name') %>
 		<%= form.text_field :name, class: "input-field" %>
 	</div>
 
 	<div class="my-5">
-		<%= form.label :address %>
+		<%= form.label :address, t('.address') %>
 		<%= form.text_area :address, rows: 4, class: "input-field" %>
 	</div>
 
 	<div class="my-5">
-		<%= form.label :email %>
+		<%= form.label :email, t('.email') %>
 		<%= form.text_field :email, class: "input-field" %>
 	</div>
 
 	<div data-controller="payment">
 		<div class="my-5">
-			<%= form.label :pay_type_id %>
+			<%= form.label :pay_type_id, t('.pay_type') %>
 			<%= form.select :pay_type_id,
-			                @pay_types,
-			                { prompt: "Select a payment method" },
+			                @pay_types.map { |key, value| [t(".pay_types.#{key}"), key] },
+			                { prompt: t('.pay_type_prompt') },
 			                'data-payment-target' => 'selection',
 			                'data-action' => 'payment#showAdditionalFields',
 			                class: "input-field" %>
@@ -41,15 +41,15 @@
 		<%= render partial: "credit_card", locals: { form: form } %>
 		<%= render partial: "purchase_order", locals: { form: form } %>
 
-		<%# if order.ship_date %>
-		<div class="my-5">
-			<%= form.label :ship_date %>
-			<%= form.date_field :ship_date, class: "input-field" %>
-		</div>
-		<%# end %>
+		<% if order.ship_date %>
+			<div class="my-5">
+				<%= form.label :ship_date %>
+				<%= form.date_field :ship_date, class: "input-field" %>
+			</div>
+		<% end %>
 
 	</div>
 	<div class="inline">
-		<%= form.submit (action == "edit" ? "Edit Order" : "Place Order"), class: "rounded-lg py-3 px-5 bg-green-200 text-black font-medium cursor-pointer" %>
+		<%= form.submit (action == "edit" ? "Edit Order" : t('.place_order')), class: "rounded-lg py-3 px-5 bg-green-200 text-black font-medium cursor-pointer" %>
 	</div>
 <% end %>
