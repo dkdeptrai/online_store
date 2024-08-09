@@ -2,10 +2,7 @@
 	<h1><%= t('.title_html') %></h1>
 	<%= turbo_stream_from 'products' %>
 
-	<% if session[:counter] >= 5 %>
-		<p class="my-4">You have visited this page <%= pluralize(session[:counter], 'time') %> since last product was added
-			to cart</p>
-	<% end %>
+	<p class="my-4"><%= raw t(('.counter'), count: session[:counter]) %></p>
 
 	<ul>
 		<%= cache @products do %>

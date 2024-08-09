@@ -1,6 +1,6 @@
 #@formatter:off
 
-vn:
+vi:
   layouts:
     application:
       title: "Cửa hàng trực tuyến"
@@ -11,6 +11,7 @@ vn:
 
   store:
     index:
+      counter: "Bạn đã truy cập trang này %{count} lần từ khi món hàng cuối được thêm vào giỏ hàng."
       title_html: "Danh mục cửa hàng trực tuyến"
     product:
       add_html: "Thêm vào giỏ hàng"
@@ -56,3 +57,27 @@ vn:
       expiration_date: "Ngày hết hạn"
     purchase_order:
       purchase_order_number: "Số đơn đặt hàng"
+
+  activerecord:
+    errors:
+      models:
+        order: "Đơn hàng"
+      attributes:
+        name: "Tên"
+        address: "Địa chỉ"
+        email: "Email"
+        pay_type: "Phương thức thanh toán"
+
+      messages:
+        required: "không được để trống"
+        inclusion: "không được để trống"
+        blank: "không được để trống"
+  errors:
+    template:
+      body: "Xin vui lòng sửa các lỗi sau đây:"
+      header:
+        one: "1 lỗi đã ngăn chặn việc lưu %{model}"
+        other: "%{count} lỗi đã ngăn chặn việc lưu %{model}"
+
+
+

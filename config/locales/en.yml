@@ -40,6 +40,9 @@ en:
 
   store:
     index:
+      counter:
+        one: "You have been here %{count} time since the last item was added to your cart."
+        other: "You have been here %{count} times since the last item was added to your cart."
       title_html: "Your Online Store Catalog"
     product:
       add_html: "Add to Cart"
@@ -85,3 +88,5 @@ en:
       expiration_date: "Expiration Date"
     purchase_order:
       purchase_order_number: "Purchase Order Number"
+
+  thanks: "Thank you for your order."

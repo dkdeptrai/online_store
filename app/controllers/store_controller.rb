@@ -9,7 +9,11 @@ class StoreController < ApplicationController
 
   def index
     update_counter
-    @products = Product.order(:name)
+    if params[:set_locale]
+      redirect_to store_index_url(locale: params[:set_locale])
+    else
+      @products = Product.order(:name)
+    end
   end
 
   private

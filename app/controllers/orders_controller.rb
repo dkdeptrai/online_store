@@ -40,8 +40,8 @@ class OrdersController < ApplicationController
         ChargeOrderJob.perform_later(@order, pay_type_params.to_h)
 
         format.html do
-          redirect_to store_index_path,
-                      notice: 'Order was successfully created. Thank you for your order.'
+          redirect_to store_index_path(locale: I18n.locale),
+                      notice: I18n.t('.thanks')
         end
         format.json { render :show, status: :created, location: @order }
       else
@@ -84,14 +84,23 @@ class OrdersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def order_params
+    params.require(:order).permit(:name, :address, :email, :ship_date, :credit_card_number, :expiration_date,
+                                  :purchase_order_number, :routing_number, :account_number)
+
+    pay_type_name = params[:order][:pay_type]
+
+    pay_type_record = PayType.find_by(name: pay_type_name)
+
+    params[:order][:pay_type_id] = pay_type_record.id if pay_type_record.present?
+
     params.require(:order).permit(:name, :address, :email, :ship_date, :pay_type_id, :credit_card_number, :expiration_date,
                                   :purchase_order_number, :routing_number, :account_number)
   end
 
   def pay_type_params
-    pay_type = PayType.find(order_params[:pay_type_id]).name
+    # pay_type = PayType.find_by!(name: order_params[:pay_type]).name
 
-    case pay_type
+    case order_params[:pay_type]
     when 'Check'
       params.require(:order).permit(:routing_number, :account_number)
     when 'Credit Card'

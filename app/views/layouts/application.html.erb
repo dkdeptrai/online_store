@@ -14,15 +14,19 @@
 	<%= favicon_link_tag asset_path("shopping-cart.svg") %>
 </head>
 
-<body class="h-full flex flex-col">
-<div class="flex h-full w-full flex-col h-auto">
+<body class="flex h-full flex-col">
+<div class="flex h-auto h-full w-full flex-col">
 	<%= turbo_stream_from 'carts' %>
-	<header class="bg-green-700">
+	<header class="flex flex-row items-center gap-4 bg-green-700">
 		<%= link_to image_tag(asset_path("shopping-cart.svg"), alt: 'Online Store', class: "size-12"), store_index_path %>
 		<h1><%= @page_title %></h1>
-
+		<aside data-controller="locale">
+			<%= form_tag store_index_path, class: 'locale' do %>
+				<%= select_tag 'set_locale', options_for_select(LANGUAGES, I18n.locale.to_s), onchange: 'this.form.submit()' %>
+			<% end %>
+		</aside>
 	</header>
-	<div class="flex min-h-full h-auto flex-row">
+	<div class="flex h-auto min-h-full flex-row">
 		<section class="flex h-full">
 			<nav class="bg-green-900 p-6">
 				<%= render partial: 'layouts/cart', locals: { cart: @cart } %>
@@ -37,7 +41,7 @@
 				<% if session[:user_id] %>
 					<hr class="my-2">
 
-					<ul class="text-gray-300 leading-8">
+					<ul class="leading-8 text-gray-300">
 						<li><%= link_to 'Orders', orders_path %></li>
 						<li><%= link_to 'Products', products_path %></li>
 						<li><%= link_to 'Users', users_path %></li>
@@ -47,7 +51,7 @@
 			</nav>
 		</section>
 
-		<main class="h-full w-full mt-4 flex flex-col grow px-5">
+		<main class="mt-4 flex h-full w-full grow flex-col px-5">
 
 			<%= turbo_frame_tag 'notice' do %>
 				<% if notice.present? %>
