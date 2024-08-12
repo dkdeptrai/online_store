@@ -659,6 +659,7 @@
               </RakeTaskImpl>
             </subtasks>
           </RakeTaskImpl>
+          <RakeTaskImpl description="" fullCommand="routes" id="routes" />
           <RakeTaskImpl description="" fullCommand="set_annotation_options" id="set_annotation_options" />
           <RakeTaskImpl description="" fullCommand="tmp" id="tmp" />
           <RakeTaskImpl description="" fullCommand="tmp/cache" id="tmp/cache" />

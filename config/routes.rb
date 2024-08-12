@@ -21,9 +21,6 @@ Rails.application.routes.draw do
     delete 'logout' => :destroy
   end
 
-  get 'sessions/create'
-  get 'session/destroy'
-
   resources :users
   resources :products
   resources :pay_types
@@ -37,5 +34,8 @@ Rails.application.routes.draw do
     end
     resources :carts
     root 'store#index', as: 'store_index', via: :all
+
+    mount ActionMailbox::Engine, at: '/rails/action_mailbox'
+
   end
 end

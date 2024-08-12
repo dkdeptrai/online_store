@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: support_requests
+#
+#  id                                               :bigint           not null, primary key
+#  body(Body of the support request)                :text
+#  email(Email of the submitter)                    :string
+#  subject(Subject of the support request)          :string
+#  created_at                                       :datetime         not null
+#  updated_at                                       :datetime         not null
+#  order_id(Their most recent order, if applicable) :bigint
+#
+# Indexes
+#
+#  index_support_requests_on_order_id  (order_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (order_id => orders.id)
+#
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the "{}" from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+# column: value

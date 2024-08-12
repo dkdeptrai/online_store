@@ -34,6 +34,24 @@ one:
   pay_type: check
   account_number: 123456
   routing_number: 654321
+
+another_one:
+  name: John Doe
+  address: MyText
+  email: johndoe@gmail.com
+  pay_type: check
+  account_number: 123456
+  routing_number: 654321
+  created_at: <%= 2.days.ago %>
+
+other_customer:
+  name: Chris Doe
+  address: 123 somewhere Ln
+  email: chris@somewhere.com
+  pay_type: credit
+  credit_card_number: 1234567890123456
+  expiration_date: 12/22
+
 two:
   name: MyString
   address: MyText
@@ -41,3 +59,4 @@ two:
   pay_type: credit
   credit_card_number: 1234567890123456
   expiration_date: 12/22
+

@@ -360,6 +360,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  actionmailbox
   active_model_serializers
   activestorage-cloudinary-service
   annotate (~> 3.2)
