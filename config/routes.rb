@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     delete 'logout' => :destroy
   end
 
+  resources :support_requests, only: %i[index update]
+
   resources :users
   resources :products
   resources :pay_types
