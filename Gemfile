@@ -86,3 +86,7 @@ gem 'hotwire-livereload', '~> 1.4', group: :development
 gem 'annotate', '~> 3.2'
 
 gem 'minitest', '~> 5.24'
+
+gem "dockerfile-rails", ">= 1.6", :group => :development
+
+gem "aws-sdk-s3", "~> 1.158", :require => false
