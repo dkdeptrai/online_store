@@ -8,18 +8,18 @@ class CartsTest < ApplicationSystemTestCase
 
     click_on 'Add to Cart', match: :first
 
-    assert has_selector? 'h2', text: 'Your Products Cart'
+    assert has_selector? 'h2', text: 'Your Cart'
   end
 
   test 'emptying the cart hides the cart' do
     visit store_index_path
     click_on 'Add to Cart', match: :first
 
-    assert has_selector? 'h2', text: 'Your Products Cart'
+    assert has_selector? 'h2', text: 'Your Cart'
 
     click_on 'Empty Cart'
 
-    assert has_no_selector? 'h2', text: 'Your Products Cart'
+    assert has_no_selector? 'h2', text: 'Your Cart'
   end
 
   test 'highlighting a new cart line item' do

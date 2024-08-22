@@ -6,9 +6,9 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<%= csrf_meta_tags %>
 	<%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 	<%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+	<%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+	<%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
 	<%= stylesheet_link_tag "application", "data-turbo-track": Rails.env.production? ? "reload" : "" %>
 	<%= javascript_importmap_tags %>
@@ -21,7 +21,7 @@
 	<%= turbo_stream_from 'carts' %>
 	<header class="flex flex-row items-center gap-4 bg-green-700">
 		<%= link_to image_tag(asset_path("shopping-cart.svg"), alt: 'Online Store', class: "size-12"), store_index_path %>
-		<h1><%= @page_title %></h1>
+		<h1><%= page_title %></h1>
 		<aside data-controller="locale">
 			<%= form_tag store_index_path, class: 'locale' do %>
 				<%= select_tag 'set_locale', options_for_select(LANGUAGES, I18n.locale.to_s), onchange: 'this.form.submit()' %>
@@ -38,6 +38,9 @@
 					<li><a href="/news"><%= t('.news') %></a></li>
 					<li><a href="/contact"><%= t('.contact') %></a></li>
 					<li><%= DateTime.now.strftime('%d/%m/%Y %H:%M') %></li>
+					<li>
+						<!--						<current-time></current-time>-->
+					</li>
 				</ul>
 
 				<% if session[:user_id] %>
@@ -70,8 +73,10 @@
 
 	</div>
 	<footer class="w-full">
-		<p>&copy; <%= DateTime.now.year %> Online Store</p>
-	</footer>
+		<p>&copy; <%= DateTime.now.year %> Online Store</p></footer>
 </div>
+<script type="module">
+	import "./importmap.json";
+</script>
 </body>
 </html>
