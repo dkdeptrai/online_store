@@ -42,6 +42,16 @@ class Product < ApplicationRecord
   validates :description, presence: true
   validates :heel_height, presence: true
 
+  def self.ransackable_attributes(auth_object = nil)
+    excluded_attribute = %w[id created_at updated_at]
+
+    column_names.reject { |attr| excluded_attribute.include?(attr) }
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    %w[category brand]
+  end
+
   private
 
   def ensure_not_referenced_by_any_line_item

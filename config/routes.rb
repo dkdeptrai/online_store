@@ -5,6 +5,7 @@
 # bundle exec rails routes
 
 Rails.application.routes.draw do
+  get 'search', to: 'search#index'
   get 'admin/index'
   get 'sessions/new'
   get 'sessions/create'

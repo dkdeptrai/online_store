@@ -19,20 +19,26 @@
 <body class="flex h-full flex-col">
 <div class="flex h-auto h-full w-full flex-col">
 	<%= turbo_stream_from 'carts' %>
-	<header class="flex flex-row items-center gap-4 bg-green-700">
-		<%= link_to image_tag(asset_path("shopping-cart.svg"), alt: 'Online Store', class: "size-12"), store_index_path %>
-		<h1><%= page_title %></h1>
-		<aside data-controller="locale">
-			<%= form_tag store_index_path, class: 'locale' do %>
-				<%= select_tag 'set_locale', options_for_select(LANGUAGES, I18n.locale.to_s), onchange: 'this.form.submit()' %>
-			<% end %>
-		</aside>
+	<header class="flex w-full flex-col justify-center bg-green-700">
+		<div class="w-full bg-black py-2 text-center text-white">
+			Summer Sale! 20% off everything! Use code <strong>SUMMER20</strong>
+		</div>
+		<div class="flex flex-row items-center gap-4 bg-white pt-6 pb-2 border-b-2">
+			<%= link_to image_tag(asset_path("shopping-cart.svg"), alt: 'Online Store', class: "size-12"), store_index_path %>
+			<h1><%= page_title %></h1>
+			<aside data-controller="locale">
+				<%= form_tag store_index_path, class: 'locale' do %>
+					<%= select_tag 'set_locale', options_for_select(LANGUAGES, I18n.locale.to_s), onchange: 'this.form.submit()' %>
+				<% end %>
+			</aside>
+			<%= render partial: 'search/form' %>
+		</div>
 	</header>
 	<div class="flex h-auto min-h-full flex-row">
-		<section class="flex h-full">
-			<nav class="bg-green-900 p-6">
+		<section class="flex h-full border-r-2">
+			<nav class="bg-white p-6">
 				<%= render partial: 'layouts/cart', locals: { cart: @cart } %>
-				<ul class="leading-8 text-gray-300">
+				<ul class="leading-8 text-black">
 					<li><a href="/"><%= t('.home') %></a></li>
 					<li><a href="/questions"><%= t('.questions') %></a></li>
 					<li><a href="/news"><%= t('.news') %></a></li>

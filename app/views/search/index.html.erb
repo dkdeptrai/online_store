@@ -1,0 +1,4 @@
+<h1><%= pluralize(@products.count, "Results") %></h1>
+<% @products.each do |product| %>
+	<%= render partial: 'store/product', object: product %>
+<% end %>

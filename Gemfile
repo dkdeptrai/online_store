@@ -91,3 +91,5 @@ gem 'minitest', '~> 5.24'
 gem "dockerfile-rails", ">= 1.6", :group => :development
 
 gem "aws-sdk-s3", "~> 1.158", :require => false
+
+gem 'ransack'
