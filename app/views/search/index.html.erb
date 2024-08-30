@@ -1,4 +1,26 @@
 <h1><%= pluralize(@products.count, "Results") %></h1>
-<% @products.each do |product| %>
-	<%= render partial: 'store/product', object: product %>
+<% unless @products.empty? %>
+	<div class="w-full">
+		<table class="table-fixed border border-slate-500">
+			<thead>
+			<tr>
+				<th class="border border-slate-600"><%= sort_link(@q, :name, "Name", default_order: :asc) %></th>
+				<th class="border border-slate-600">Image</th>
+				<th class="border border-slate-600"><%= sort_link(@q, :code, "Code") %></th>
+				<th class="border border-slate-600"><%= sort_link(@q, :description, "Description") %></th>
+			</tr>
+			</thead>
+			<tbody>
+
+			<% @products.each do |product| %>
+				<tr>
+					<td class="border border-slate-700"><%= product.name %></td>
+					<td class="h-auto w-1/5 border border-slate-700"><%= image_tag(product.images.first.url, class: "size-48 object-cover") %></td>
+					<td class="border border-slate-700"><%= product.code %></td>
+					<td class="border border-slate-700"><%= sanitize(product.description) %></td>
+				</tr>
+			<% end %>
+			</tbody>
+		</table>
+	</div>
 <% end %>

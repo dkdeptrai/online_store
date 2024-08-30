@@ -1,0 +1,18 @@
+<%= form_with model: @category do |form| %>
+	<% if form.object.errors.any? %>
+		<div id="error-explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+			<h2><%= pluralize(form.object.errors.count, "error") %> prohibited this category from being saved:</h2>
+			<ul>
+				<% form.object.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	<div class="my-5">
+		<%= form.label :name %>
+		<%= form.text_field :name, class: "input-field" %>
+	</div>
+
+	<%= form.submit class: "gray-btn" %>
+<% end %>

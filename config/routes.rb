@@ -27,7 +27,8 @@ Rails.application.routes.draw do
   resources :users
   resources :products
   resources :pay_types
-
+  resources :categories
+  
   scope '(:locale)' do
     resources :orders
     resources :line_items do
