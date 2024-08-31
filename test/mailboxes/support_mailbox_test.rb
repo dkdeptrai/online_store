@@ -1,11 +1,13 @@
-require "test_helper"
+# frozen_string_literal: true
+
+require 'test_helper'
 
 class SupportMailboxTest < ActionMailbox::TestCase
-  test "receive mail" do
+  test 'receive mail' do
     receive_inbound_email_from_mail(
-      from: "khoa@somewhere.com",
-      to: "support@example.com",
-      subject: "Need help",
+      from: 'khoa@somewhere.com',
+      to: 'support@example.com',
+      subject: 'Need help',
       body: "I can't figure out how to check out"
     )
 
@@ -17,10 +19,10 @@ class SupportMailboxTest < ActionMailbox::TestCase
     assert_nil support_request.order
   end
 
-  test "create a SupportRequest with most recent associated Order" do
+  test 'create a SupportRequest with most recent associated Order' do
     recent_order = orders(:one)
-    older_order = orders(:another_one)
-    non_customer = orders(:other_customer)
+    orders(:another_one)
+    orders(:other_customer)
     receive_inbound_email_from_mail(
       from: recent_order.email,
       to: 'support@example.com',

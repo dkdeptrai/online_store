@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
+  get 'products/lazy_load', to: 'products#lazy_load'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -28,7 +29,7 @@ Rails.application.routes.draw do
   resources :products
   resources :pay_types
   resources :categories
-  
+
   scope '(:locale)' do
     resources :orders
     resources :line_items do
@@ -40,6 +41,5 @@ Rails.application.routes.draw do
     root 'store#index', as: 'store_index', via: :all
 
     mount ActionMailbox::Engine, at: '/rails/action_mailbox'
-
   end
 end

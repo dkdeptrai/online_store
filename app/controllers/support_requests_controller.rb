@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SupportRequestsController < ApplicationController
   def index
     @support_requests = SupportRequest.all

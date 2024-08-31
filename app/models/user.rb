@@ -14,7 +14,6 @@ class User < ApplicationRecord
   has_secure_password
 
   class Error < StandardError
-    
   end
 
   after_destroy :ensure_an_admin_remains
@@ -26,6 +25,6 @@ class User < ApplicationRecord
   def ensure_an_admin_remains
     return unless User.count.zero?
 
-    raise Error.new "Can't delete last user"
+    raise Error, "Can't delete last user"
   end
 end

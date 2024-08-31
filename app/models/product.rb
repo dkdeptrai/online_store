@@ -7,7 +7,6 @@
 #  id          :bigint           not null, primary key
 #  code        :string
 #  description :text
-#  heel_height :string
 #  name        :string
 #  price       :decimal(, )
 #  created_at  :datetime         not null
@@ -40,15 +39,14 @@ class Product < ApplicationRecord
   validates :category_id, presence: true
   validates :brand_id, presence: true
   validates :description, presence: true
-  validates :heel_height, presence: true
 
-  def self.ransackable_attributes(auth_object = nil)
+  def self.ransackable_attributes(_auth_object = nil)
     excluded_attribute = %w[id created_at updated_at]
 
     column_names.reject { |attr| excluded_attribute.include?(attr) }
   end
 
-  def self.ransackable_associations(auth_object = nil)
+  def self.ransackable_associations(_auth_object = nil)
     %w[category brand]
   end
 

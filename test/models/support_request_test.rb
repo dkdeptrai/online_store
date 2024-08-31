@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: support_requests
@@ -18,7 +20,7 @@
 #
 #  fk_rails_...  (order_id => orders.id)
 #
-require "test_helper"
+require 'test_helper'
 
 class SupportRequestTest < ActiveSupport::TestCase
   # test "the truth" do

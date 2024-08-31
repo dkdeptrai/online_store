@@ -4,14 +4,20 @@
 
 	<p class="my-4"><%= raw t(('.counter'), count: session[:counter]) %></p>
 
-	<ul>
-		<%= cache @products do %>
-			<% @products.each do |product| %>
-				<%= cache product do %>
-					<%= render partial: 'product', object: product %>
-				<% end %>
-			<% end %>
-		<% end %>
-	</ul>
+	<!--	<ul>-->
+	<%#= cache @products do %>
+	<%# @products.each do |product| %>
+	<%#= cache product do %>
+	<%#= render partial: 'product', object: product %>
+	<%# end %>
+	<%# end %>
+	<%# end %>
+	<!--	</ul>-->
+
+	<div class="items-center"
+	     data-controller="content-loader" data-content-loader-url-value="<%= products_lazy_load_path %>">
+		<i class="fas fa-spinner fa-spin"></i>
+		<span>Loading products...</span>
+	</div>
 </div>
 

@@ -1,9 +1,9 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 I18n.default_locale = :en
 
 LANGUAGES = [
-  ['English', 'en'],
+  %w[English en],
   ['Espa&ntilde;ol'.html_safe, 'es'],
-  ['Vietnamese', 'vi']
-]
+  %w[Vietnamese vi]
+].freeze

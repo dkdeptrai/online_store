@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SupportMailbox < ApplicationMailbox
   def process
     recent_order = Order.where(email: mail.from_address.to_s).order('created_at desc').first

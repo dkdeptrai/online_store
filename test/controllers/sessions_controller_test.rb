@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'est_helper'
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest

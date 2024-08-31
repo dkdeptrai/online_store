@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationMailbox < ActionMailbox::Base
-  routing /support@example.com/i => :support
+  routing(/support@example.com/i => :support)
 end

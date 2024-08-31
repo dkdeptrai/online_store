@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ProductsController < ApplicationController
-
   before_action :set_collections, only: %i[new edit create update]
   before_action :set_product, only: %i[show edit update destroy]
 
@@ -24,7 +23,13 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all.reverse
+    # @products = Product.all.reverse
+    # @pagy, @products = pagy(Product.all, items: 10)
+    @pagy, @products = pagy_countless(Product.all, limit: 5)
+    respond_to do |format|
+      format.html
+      format.turbo_stream
+    end
   end
 
   def show
@@ -53,6 +58,12 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     redirect_to products_path, notice: 'Product was successfully destroyed.'
+  end
+
+  def lazy_load
+    @products = Product.all
+
+    render partial: 'store/product', collection: @products, layout: false, cache: true
   end
 
   private

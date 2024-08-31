@@ -1,3 +1,6 @@
+@import 'pagy.tailwind.css';
+@import 'actiontext.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,11 +38,11 @@ dd {
 
 
 .blue-btn {
-  @apply rounded-lg bg-blue-200 px-4 py-2;
+  @apply rounded-lg bg-blue-200 my-4 px-4 py-2;
 }
 
 .gray-btn {
-  @apply rounded-lg bg-gray-200 px-4 py-2;
+  @apply rounded-lg bg-gray-200 my-4 px-4 py-2;
 }
 
 
@@ -50,4 +53,3 @@ dd {
 .alert {
   @apply mx-auto inline-block rounded-lg bg-red-500 p-2 font-semibold text-white;
 }
-@import 'actiontext.css';
