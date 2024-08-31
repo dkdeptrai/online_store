@@ -69,7 +69,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :code, :price, :category_id, :brand_id, :heel_height, :description,
+    params.require(:product).permit(:name, :code, :price, :category_id, :brand_id, :description,
                                     images: [])
   end
 
@@ -83,12 +83,19 @@ class ProductsController < ApplicationController
   end
 
   def process_images(images)
-    filtered_image = images.compact
-    filtered_image.each do |image|
-      img_url = ImageUploader.upload(image, @product.id)
-      @product.images.create!(url: img_url)
-    rescue StandardError => e
-      Rails.logger.debug("Error uploading image: #{e.message}")
+    if images.present? && !images.empty?
+      filtered_image = images.compact
+      filtered_image.each do |image|
+        img_url = ImageUploader.upload(image, @product.id)
+        @product.images.create!(url: img_url)
+      end
+    else
+      errors.add(:images, 'Images are required')
+      raise ActiveRecord::RecordInvalid.new(@product)
     end
+  rescue StandardError => e
+    Rails.logger.debug("Error uploading image: #{e.message}")
+    errors.add(:base, "Failed to upload images")
+    raise ActiveRecord::RecordInvalid.new(@product)
   end
 end

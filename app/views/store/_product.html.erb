@@ -1,24 +1,21 @@
-<%= turbo_frame_tag dom_id(product) do %>
-	<tr class="<%= cycle('bg-green-50', 'bg-white') %>">
-		<td class="px-2 py-3">
-			<%= image_tag(product.images.first.url, class: 'size-48') %>
-		</td>
-
-		<td>
-			<h2 class="mb-3 text-xl font-bold"><%= product.name %></h2>
-			<p><%= truncate(strip_tags(product.description), length: 80) %></p>
-			<p><%= product.price %> $</p>
+<%= turbo_frame_tag(dom_id(product)) do %>
+	<li class="mb-6 flex flex-row">
+		<%= button_to line_items_path(product_id: product), method: :post, class: "inline-flex items-center w-48 mr-6", form_class: "inline" do %>
+			<%= image_tag(product.images.first.url, class: "object-center") %>
+		<% end %>
+		<div>
+			<h2><%= product.name %></h2>
+			<p><%= sanitize(product.description) %></p>
 			<p><%= product.brand.name %></p>
 			<p><%= product.category.name %></p>
 			<p><%= product.heel_height %></p>
-		</td>
-
-		<td class="px-2 py-3">
-			<div class="flex flex-col gap-4">
-				<%= link_to 'Show', product, class: "gray-btn" %>
-				<%= link_to 'Edit', edit_product_path(product), class: "gray-btn" %>
-				<%= link_to 'Delete', product, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "gray-btn" %>
+			<div class="mt-3 flex flex-row items-center">
+				<p class="min-w-40"><%= number_to_currency(product.price) %></p>
+				<%= button_to t('.add_html'),
+				              line_items_path(product_id: product),
+				              form_class: "inline",
+				              class: "ml-4 rounded-lg py-1 px-2 bg-green-600 text-white " %>
 			</div>
-		</td>
-	</tr>
+		</div>
+	</li>
 <% end %>

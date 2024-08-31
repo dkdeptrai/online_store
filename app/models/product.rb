@@ -39,6 +39,7 @@ class Product < ApplicationRecord
   validates :category_id, presence: true
   validates :brand_id, presence: true
   validates :description, presence: true
+  validates :images, presence: true
 
   def self.ransackable_attributes(_auth_object = nil)
     excluded_attribute = %w[id created_at updated_at]

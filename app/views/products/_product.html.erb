@@ -1,6 +1,10 @@
 <tr id="<%= dom_id product %>" class="<%= cycle('bg-green-50', 'bg-white') %>">
 	<td class="px-2 py-3">
-		<%= image_tag(product.images.first.url, class: 'size-48') %>
+		<% if product.images.first.url.nil? %>
+			<%= image_tag(asset_path('image-broken.svg'), class: 'size-48') %>
+		<% else %>
+			<%= image_tag(product.images.first.url, class: 'size-48') %>
+		<% end %>
 	</td>
 
 	<td>
@@ -9,7 +13,6 @@
 		<p><%= product.price %> $</p>
 		<p><%= product.brand.name %></p>
 		<p><%= product.category.name %></p>
-		<p><%= product.heel_height %></p>
 	</td>
 
 	<td class="px-2 py-3">
