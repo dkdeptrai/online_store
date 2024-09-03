@@ -60,12 +60,6 @@ class ProductsController < ApplicationController
     redirect_to products_path, notice: 'Product was successfully destroyed.'
   end
 
-  def lazy_load
-    @products = Product.all
-
-    render partial: 'store/product', collection: @products, layout: false, cache: true
-  end
-
   private
 
   def product_params

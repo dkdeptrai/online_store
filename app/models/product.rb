@@ -7,6 +7,7 @@
 #  id          :bigint           not null, primary key
 #  code        :string
 #  description :text
+#  heel_height :string
 #  name        :string
 #  price       :decimal(, )
 #  created_at  :datetime         not null
@@ -24,7 +25,6 @@
 #  fk_rails_...  (brand_id => brands.id)
 #  fk_rails_...  (category_id => categories.id)
 #
-# app/models/product.rb
 class Product < ApplicationRecord
   belongs_to :category
   belongs_to :brand
@@ -39,7 +39,6 @@ class Product < ApplicationRecord
   validates :category_id, presence: true
   validates :brand_id, presence: true
   validates :description, presence: true
-  validates :images, presence: true
 
   def self.ransackable_attributes(_auth_object = nil)
     excluded_attribute = %w[id created_at updated_at]

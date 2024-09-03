@@ -22,7 +22,8 @@
 class Image < ApplicationRecord
   belongs_to :product
 
-  VALID_IMAGE_URL_REGEX = %r{\A(https?://.*\.(gif|jpe?g|png|webp)|https?:\/\/loremflickr\.com\/.*)\z}i
+  #  VALID_IMAGE_URL_REGEX = %r{\A(https?://.*\.(gif|jpe?g|png|webp)|https?://loremflickr\.com/.*)\z}i
+  VALID_IMAGE_URL_REGEX = %r{\Ahttps?://.*\z}
 
   validates :url, presence: true
   validates :url, format: {

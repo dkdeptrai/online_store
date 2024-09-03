@@ -1,6 +1,6 @@
 <tr id="<%= dom_id product %>" class="<%= cycle('bg-green-50', 'bg-white') %>">
 	<td class="px-2 py-3">
-		<% if product.images.first.url.nil? %>
+		<% if product.images.first.nil? %>
 			<%= image_tag(asset_path('image-broken.svg'), class: 'size-48') %>
 		<% else %>
 			<%= image_tag(product.images.first.url, class: 'size-48') %>
