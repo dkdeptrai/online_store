@@ -29,28 +29,26 @@
 		<%== pagy_nav(@pagy_category1_products) %>
 	<% end %>
 
+	<!--	<h2>Category 2 Products</h2>-->
+	<%#= turbo_frame_tag :category2_products do %>
 
+	<!--		<div class="flex flex-row gap-4">-->
+	<%# @category2_products.each do |product| %>
+	<%#= render partial: 'small_product', locals: { product: product } %>
+	<%# end %>
+	<!--		</div>-->
+	<%#== pagy_nav(@pagy_category2_products) %>
+	<%# end %>
 
-	<h2>Category 2 Products</h2>
-	<%= turbo_frame_tag :category2_products do %>
+	<!--	<h2>Category 3 Products</h2>-->
+	<%#= turbo_frame_tag :category3_products do %>
 
-		<div class="flex flex-row gap-4">
-			<% @category2_products.each do |product| %>
-				<%= render partial: 'small_product', locals: { product: product } %>
-			<% end %>
-		</div>
-		<%== pagy_nav(@pagy_category2_products) %>
-	<% end %>
-
-	<h2>Category 3 Products</h2>
-	<%= turbo_frame_tag :category3_products do %>
-
-		<div class="flex flex-row gap-4">
-			<% @category3_products.each do |product| %>
-				<%= render partial: 'small_product', locals: { product: product } %>
-			<% end %>
-		</div>
-		<%== pagy_nav(@pagy_category3_products) %>
-	<% end %>
+	<!--		<div class="flex flex-row gap-4">-->
+	<%# @category3_products.each do |product| %>
+	<%#= render partial: 'small_product', locals: { product: product } %>
+	<%# end %>
+	<!--		</div>-->
+	<%#== pagy_nav(@pagy_category3_products) %>
+	<%# end %>
 </div>
 

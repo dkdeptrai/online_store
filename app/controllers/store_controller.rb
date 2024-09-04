@@ -39,9 +39,9 @@ class StoreController < ApplicationController
   def set_products_from_categories
     @pagy_category1_products, @category1_products = pagy_countless(Category.find_by(name: 'Category 1').products,
                                                                    limit: 5, overflow: :empty_page)
-    @pagy_category2_products, @category2_products = pagy_countless(Category.find_by(name: 'Category 2').products,
-                                                                   limit: 5, overflow: :empty_page)
-    @pagy_category3_products, @category3_products = pagy_countless(Category.find_by(name: 'Category 3').products,
-                                                                   limit: 5, overflow: :empty_page)
+    # @pagy_category2_products, @category2_products = pagy_countless(Category.find_by(name: 'Category 2').products,
+    #                                                                limit: 5, overflow: :empty_page)
+    # @pagy_category3_products, @category3_products = pagy_countless(Category.find_by(name: 'Category 3').products,
+    #                                                                limit: 5, overflow: :empty_page)
   end
 end
